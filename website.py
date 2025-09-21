@@ -175,19 +175,7 @@ with tab2:
     st.markdown("---")
     
     # Team skills overview
-    st.subheader("🔧 Team Skills Overview")
     
-    skills_data = {
-        'Skill': ['Machine Learning', 'Data Engineering', 'Domain Expertise', 'Statistical Analysis', 'Visualization'],
-        'Team Strength': [95, 90, 92, 88, 85]
-    }
-    
-    fig3 = px.bar(skills_data, x='Skill', y='Team Strength',
-                  title='Team Skill Assessment',
-                  color='Team Strength',
-                  color_continuous_scale='Blues')
-    fig3.update_layout(xaxis_tickangle=-45)
-    st.plotly_chart(fig3, use_container_width=True)
 
 with tab3:
     st.markdown('<h2 class="sub-header">📋 Quick Reference Summary</h2>', unsafe_allow_html=True)
