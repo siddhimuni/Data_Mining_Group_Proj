@@ -134,48 +134,41 @@ with tab2:
     
     # Team member 2
     col1, col2 = st.columns([1, 3])
-    
     with col1:
-        st.image("https://via.placeholder.com/200x200/E74C3C/FFFFFF?text=MR", width=180)
+        st.markdown('<div class="team-card">', unsafe_allow_html=True)
+        st.image("portfolio.jpg", caption="Sejal Hukare")
+        st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
-        st.subheader("Marcus Rodriguez - Modeling Lead & Software Engineer")
-        st.write("**Brief Bio:** Marcus is a full-stack developer and machine learning engineer with expertise in big data systems and cloud architecture. He holds a BS in Computer Science from UC Berkeley and has built several crime mapping applications currently used by neighborhood watch groups across the Bay Area.")
-        
+        st.subheader("Sejal Hukare - Pipeline and ML ")
+        st.write("**Brief Bio:** I’m a passionate coding and tech enthusiast, always eager to dive into new challenges and explore the ever-evolving world of technology. My curiosity drives me to continuously learn and grow, while my love for connecting with people fuels my ability to collaborate and innovate. Whether it’s solving complex problems or exchanging ideas, I thrive in environments where creativity and learning intersect.")
         st.write("**Team Role/Responsibilities:**")
         st.write("• Machine learning model architecture and optimization")
-        st.write("• Data pipeline development and ETL processes")
-        st.write("• Cloud infrastructure setup and deployment")
-        st.write("• Interactive dashboard and web application development")
-        
+        st.write("• Data pipeline development and deployment")
         st.write("**Portfolio Links:**")
-        st.write("📧 marcus.rodriguez@email.com | 💼 [LinkedIn](https://linkedin.com/in/marcus-rodriguez-ml) | 🐙 [GitHub](https://github.com/mrodriguez-mlops) | 🌐 [Personal Website](https://marcusrodriguez-tech.dev)")
+        st.write("📧 sejal.hukare@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/sejal-hukare) | 🐙 [GitHub](https://github.com/sezol) ")
     
     st.markdown("---")
     
     # Team member 3
     col1, col2 = st.columns([1, 3])
-    
     with col1:
-        st.image("https://via.placeholder.com/200x200/9B59B6/FFFFFF?text=AL", width=180)
+        st.markdown('<div class="team-card">', unsafe_allow_html=True)
+        st.image("https://images.unsplash.com/photo-1543874312-d021c3b17478?q=80&w=2670&auto=format&fit=crop", caption="Dr. Amanda Liu")
+        st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
         st.subheader("Dr. Amanda Liu - Visualization Lead & Domain Expert")
         st.write("**Brief Bio:** Dr. Liu is a criminology researcher and data visualization specialist with a PhD from Harvard University. She has published 12 peer-reviewed papers on predictive policing and has consulted for major cities on crime prevention strategies. Her expertise bridges academic research with practical policy implementation.")
-        
         st.write("**Team Role/Responsibilities:**")
         st.write("• Data visualization design and interactive dashboards")
         st.write("• Domain expertise and criminological research methodology")
         st.write("• Statistical analysis and model interpretation")
         st.write("• Policy recommendations and stakeholder reporting")
-        
         st.write("**Portfolio Links:**")
         st.write("📧 amanda.liu@email.com | 💼 [LinkedIn](https://linkedin.com/in/dr-amanda-liu) | 🐙 [GitHub](https://github.com/aliu-research) | 🌐 [Research Portfolio](https://amandaliu-research.academia.edu)")
     
     st.markdown("---")
-    
-    # Team skills overview
-    
 
 with tab3:
     st.markdown('<h2 class="sub-header">📋 Quick Reference Summary</h2>', unsafe_allow_html=True)
@@ -211,7 +204,91 @@ with tab3:
         • **Output:** Interactive dashboards and recommendations  
         """)
     
-    # Key Research Questions
+    # Mock Data Generation
+    # In a real project, you would load your data here
+    np.random.seed(0)
+    dates = pd.to_datetime(pd.date_range('2021-01-01', '2024-12-31', freq='D'))
+    data_points = len(dates)
+    
+    crime_categories = ['Vehicle Theft', 'Robbery', 'Burglary', 'Assault', 'Vandalism']
+    districts = ['Central', 'Southern', 'Northern', 'Bayview', 'Mission', 'Richmond', 'Ingleside', 'Park', 'Taraval', 'Tenderloin']
+    
+    df = pd.DataFrame({
+        'Date': np.random.choice(dates, data_points * 5, replace=True),
+        'Category': np.random.choice(crime_categories, data_points * 5, replace=True),
+        'District': np.random.choice(districts, data_points * 5, replace=True),
+        'Incidents': np.random.randint(1, 10, data_points * 5)
+    })
+    
+    # Dynamic Filtering Sidebar
+    st.markdown("### Interactive Crime Dashboard (Mock Data)")
+    
+    st.markdown('<div class="text-block">Use the sliders and filters below to explore how crime trends change over time, by category, and by district. This interactive dashboard demonstrates how we will present our project\'s findings.</div>', unsafe_allow_html=True)
+
+    col_filters1, col_filters2 = st.columns(2)
+    
+    with col_filters1:
+        selected_years = st.slider(
+            "Select Year Range:",
+            min_value=2021, max_value=2024, value=(2022, 2024)
+        )
+        selected_categories = st.multiselect(
+            "Select Crime Categories:",
+            options=crime_categories,
+            default=crime_categories
+        )
+
+    with col_filters2:
+        selected_districts = st.multiselect(
+            "Select Districts:",
+            options=districts,
+            default=districts
+        )
+        
+    filtered_df = df[
+        (df['Date'].dt.year >= selected_years[0]) &
+        (df['Date'].dt.year <= selected_years[1]) &
+        (df['Category'].isin(selected_categories)) &
+        (df['District'].isin(selected_districts))
+    ]
+    
+    # Display statistics
+    st.markdown('<h3 class="sub-header">Key Statistics</h3>', unsafe_allow_html=True)
+    col_stats1, col_stats2, col_stats3 = st.columns(3)
+    
+    with col_stats1:
+        st.metric(label="Total Incidents (in range)", value=f"{filtered_df['Incidents'].sum():,}")
+    with col_stats2:
+        st.metric(label="Average Daily Incidents", value=f"{filtered_df['Incidents'].sum() / (filtered_df['Date'].nunique()):.2f}")
+    with col_stats3:
+        st.metric(label="Most Common Crime", value=filtered_df['Category'].mode()[0] if not filtered_df.empty else "N/A")
+    
+    # Crime Trends Over Time
+    st.markdown('<h3 class="sub-header">Crime Trends Over Time</h3>', unsafe_allow_html=True)
+    trend_data = filtered_df.groupby(filtered_df['Date'].dt.to_period('M'))['Incidents'].sum().reset_index()
+    trend_data['Date'] = trend_data['Date'].astype(str)
+    
+    fig_time = px.line(
+        trend_data,
+        x='Date',
+        y='Incidents',
+        title='Monthly Crime Incidents Trend'
+    )
+    st.plotly_chart(fig_time, use_container_width=True)
+    
+    # Crime Distribution by District
+    st.markdown('<h3 class="sub-header">Crime Distribution by District</h3>', unsafe_allow_html=True)
+    district_data = filtered_df.groupby('District')['Incidents'].sum().reset_index()
+    
+    fig_district = px.bar(
+        district_data,
+        x='District',
+        y='Incidents',
+        title='Total Incidents by District'
+    )
+    st.plotly_chart(fig_district, use_container_width=True)
+
+    # Sample visualization of crime types
     st.markdown('<h3 class="sub-header">❓ Key Research Questions</h3>', unsafe_allow_html=True)
     
     questions = [
@@ -226,9 +303,6 @@ with tab3:
     for i, question in enumerate(questions, 1):
         st.markdown(f"{i}. {question}")
     
-    # Sample visualization of crime types
-    
-
 # Footer
 st.markdown("---")
 st.markdown("""
