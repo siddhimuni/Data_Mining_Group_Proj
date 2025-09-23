@@ -160,12 +160,12 @@ with col1:
 
 with col2:
     st.subheader("Mokshith - Data & Feature Engineer")
-    st.write("**Brief Bio:** Passionate about uncovering patterns in data and transforming raw information into actionable insights. Experienced in feature engineering, preprocessing, and supporting predictive models.")
+    st.write("**Brief Bio:** I’m passionate about uncovering hidden patterns in data and turning raw information into actionable insights. I enjoy getting hands-on with datasets—cleaning, preprocessing, and engineering features—to help predictive models perform at their best. Beyond the numbers, I love experimenting with creative solutions and seeing how data can make real-world decisions smarter and more efficient.")
     st.write("**Team Role/Responsibilities:**")
     st.write("• Data preprocessing and feature engineering")
     st.write("• Supporting machine learning model development")
     st.write("**Portfolio Links:**")
-    st.write("📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500)")
+    st.write("📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500) | 🌐 [IEEE Explore](https://scholar.google.com/citations?user=pSDJxbQAAAAJ&hl=en)")
 
     
     st.markdown("---")
