@@ -165,7 +165,7 @@ with col2:
     st.write("• Data preprocessing and feature engineering")
     st.write("• Supporting machine learning model development")
     st.write("**Portfolio Links:**")
-    st.write("📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500) | 🌐 [IEEE Explore](https://scholar.google.com/citations?user=pSDJxbQAAAAJ&hl=en)")
+    st.write("📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500) | 🌐 [IEEE Explore](https://ieeexplore.ieee.org/author/220685108923536)")
 
     
     st.markdown("---")
