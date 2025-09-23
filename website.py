@@ -152,21 +152,21 @@ with tab2:
     
     # Team member 3
     col1, col2 = st.columns([1, 3])
-    with col1:
-        st.markdown('<div class="team-card">', unsafe_allow_html=True)
-        st.image("https://images.unsplash.com/photo-1543874312-d021c3b17478?q=80&w=2670&auto=format&fit=crop", caption="Dr. Amanda Liu")
-        st.markdown('</div>', unsafe_allow_html=True)
-    
-    with col2:
-        st.subheader("Dr. Amanda Liu - Visualization Lead & Domain Expert")
-        st.write("**Brief Bio:** Dr. Liu is a criminology researcher and data visualization specialist with a PhD from Harvard University. She has published 12 peer-reviewed papers on predictive policing and has consulted for major cities on crime prevention strategies. Her expertise bridges academic research with practical policy implementation.")
-        st.write("**Team Role/Responsibilities:**")
-        st.write("• Data visualization design and interactive dashboards")
-        st.write("• Domain expertise and criminological research methodology")
-        st.write("• Statistical analysis and model interpretation")
-        st.write("• Policy recommendations and stakeholder reporting")
-        st.write("**Portfolio Links:**")
-        st.write("📧 amanda.liu@email.com | 💼 [LinkedIn](https://linkedin.com/in/dr-amanda-liu) | 🐙 [GitHub](https://github.com/aliu-research) | 🌐 [Research Portfolio](https://amandaliu-research.academia.edu)")
+
+with col1:
+    st.markdown('<div class="team-card">', unsafe_allow_html=True)
+    st.image("profile (2).jpg", caption="Mokshith")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col2:
+    st.subheader("Mokshith - Data & Feature Engineer")
+    st.write("**Brief Bio:** Passionate about uncovering patterns in data and transforming raw information into actionable insights. Experienced in feature engineering, preprocessing, and supporting predictive models.")
+    st.write("**Team Role/Responsibilities:**")
+    st.write("• Data preprocessing and feature engineering")
+    st.write("• Supporting machine learning model development")
+    st.write("**Portfolio Links:**")
+    st.write("📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500)")
+
     
     st.markdown("---")
 
