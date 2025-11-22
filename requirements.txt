@@ -6,5 +6,5 @@ requests
 python-dotenv
 wordcloud
 mlxtend
-sckit-learn
+scikit-learn
 imbalanced-learn
