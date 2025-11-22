@@ -37,13 +37,6 @@ st.markdown("""
         border-left: 4px solid #1f77b4;
         margin: 1rem 0;
     }
-    .stat-box {
-        background-color: #e3f2fd;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-        margin: 0.5rem;
-    }
     .team-card {
         background-color: #f5f5f5;
         padding: 1.5rem;
@@ -58,70 +51,62 @@ st.markdown("""
 st.markdown('<h1 class="main-header">🚔 Predicting Crime Patterns in San Francisco</h1>', unsafe_allow_html=True)
 st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">Optimizing Public Safety Resource Allocation Through Data Science</p>', unsafe_allow_html=True)
 
-# Create tabs - Added Phase 2 EDA as fourth tab
-tab1, tab2, tab3, tab4 = st.tabs(["📊 Introduction", "👥 Team", "📋 Proposal Overview", "🔍 Phase 2 – EDA"])
+# Tabs (shorter labels so they fit better)
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "📊 Intro",
+    "👥 Team",
+    "📋 Proposal",
+    "🔍 Phase 2 EDA",
+    "🧠 Models"
+])
 
+# =========================
+# TAB 1 – INTRODUCTION
+# =========================
 with tab1:
     st.markdown('<h2 class="sub-header">Research Topic & Significance</h2>', unsafe_allow_html=True)
-    
     st.write("""
-    Urban crime represents one of the most pressing challenges facing modern cities, directly impacting public safety, economic development, and community well-being. This research focuses on analyzing comprehensive crime data from San Francisco to develop predictive models and identify actionable patterns that can enhance public safety strategies. The significance of this study lies in its potential to transform reactive policing into proactive, data-driven law enforcement that can prevent crimes before they occur. 
-    
-    By leveraging machine learning algorithms and advanced statistical analysis on over 500,000 crime incidents, this research aims to uncover temporal, spatial, and categorical patterns that have remained hidden in traditional crime analysis approaches. The importance of this work extends beyond academic interest—it directly addresses the critical need for evidence-based public safety policies that can save lives, reduce victimization, and optimize the allocation of limited municipal resources. 
-    
-    Who benefits from this research includes police departments seeking efficient resource deployment, city planners designing safer communities, businesses making location decisions, and ultimately, every citizen whose safety and quality of life depends on effective crime prevention strategies.
-    """)
-    
-    st.markdown('<h2 class="sub-header">Stakeholders (Who is Affected?)</h2>', unsafe_allow_html=True)
-    
-    st.write("""
-    The primary stakeholders impacted by this research span multiple sectors of urban society. Law enforcement agencies, particularly the San Francisco Police Department, represent the most direct beneficiaries, as predictive crime models can revolutionize patrol deployment strategies, shift scheduling, and tactical resource allocation. City government officials and urban planners will gain critical insights for policy development, budget allocation decisions, and infrastructure planning that considers public safety implications. 
-    
-    Local businesses and commercial districts are significantly affected, as crime patterns directly influence foot traffic, property values, insurance costs, and overall economic vitality. Residents and community organizations benefit from enhanced safety awareness, enabling informed decisions about housing, transportation, and daily activities. Tourism boards and hospitality industries have substantial stakes in crime reduction, as public safety perceptions directly impact San Francisco's reputation and visitor economy. 
-    
-    Insurance companies and real estate developers require accurate crime risk assessments for pricing and investment decisions. The real-world implications extend to emergency services, public health organizations, and social service agencies who must respond to crime's broader societal impacts. This research addresses the fundamental challenge of making cities safer while optimizing the use of public resources in an era of budget constraints and increasing urbanization.
-    """)
-    
-    st.markdown('<h2 class="sub-header">Existing Solutions & Gaps</h2>', unsafe_allow_html=True)
-    
-    st.write("""
-    Current crime analysis solutions primarily rely on retrospective statistical reports and basic geographic information systems that identify where crimes have already occurred. Traditional approaches include CompStat systems used by many police departments, which provide historical crime mapping and basic trend analysis, and hot spot policing strategies that deploy officers to areas with historically high crime rates. 
-    
-    However, these existing solutions face significant limitations and challenges that this research addresses. Most current systems lack predictive capabilities, operating reactively rather than proactively to prevent crimes. Limited temporal analysis represents another gap, as existing tools often fail to capture complex time-based patterns including seasonal variations, day-of-week effects, and hour-specific trends that could inform strategic planning. 
-    
-    Inadequate integration of multiple data sources prevents comprehensive analysis that could combine crime data with socioeconomic factors, weather patterns, and special events. Insufficient granularity in crime categorization limits the effectiveness of targeted interventions, as broad crime categories may obscure specific patterns that require different prevention strategies. Current solutions also struggle with scalability and real-time processing of large datasets, limiting their utility for dynamic resource allocation decisions. The challenge of translating analytical insights into actionable operational strategies remains largely unsolved in existing systems.
-    """)
-    
-    st.markdown('<h2 class="sub-header">Blueprint for Your Project</h2>', unsafe_allow_html=True)
-    
-    st.write("""
-    This comprehensive data science project will employ a multi-phase analytical approach to transform raw crime data into actionable intelligence for public safety optimization. The project team will explore temporal pattern analysis using time series decomposition and seasonal trend analysis to identify when different types of crimes are most likely to occur, enabling predictive patrol scheduling and resource allocation. 
-    
-    Spatial analysis techniques including geographic clustering algorithms, hotspot mapping, and geospatial correlation analysis will reveal crime concentration patterns and their relationship to urban infrastructure, demographic factors, and economic indicators. Machine learning classification models will be developed to predict crime types based on temporal, spatial, and contextual features, with particular focus on distinguishing between violent and property crimes to support risk-based policing strategies. 
-    
-    Predictive modeling approaches will include ensemble methods such as Random Forest and Gradient Boosting, as well as deep learning techniques for complex pattern recognition in high-dimensional crime data. The team will also implement clustering analysis to identify distinct crime patterns and criminal behavior profiles that may not be apparent through traditional analysis methods. 
-    
-    Feature engineering will create new variables combining temporal, geographical, and categorical data to enhance model performance and interpretability. The project will consider multiple datasets including the primary San Francisco Crime dataset (500K+ records), supplemented by weather data, economic indicators, and demographic information to create a comprehensive analytical framework. 
-    
-    Evaluation metrics will focus on both statistical accuracy and practical utility, ensuring that models not only perform well mathematically but also provide actionable insights for real-world implementation. The final deliverable will include interactive dashboards, predictive models, and strategic recommendations that can be directly implemented by law enforcement and city planning agencies.
+    Urban crime represents one of the most pressing challenges facing modern cities. This project analyzes 
+    San Francisco crime data to build predictive models and uncover patterns that can support proactive, 
+    data-driven public safety decision-making.
     """)
 
+    st.markdown('<h2 class="sub-header">Stakeholders</h2>', unsafe_allow_html=True)
+    st.write("""
+    Key stakeholders include the San Francisco Police Department, city planners, local businesses, residents, 
+    and policymakers. All benefit from understanding where, when, and which types of crimes occur.
+    """)
+
+    st.markdown('<h2 class="sub-header">Existing Solutions & Gaps</h2>', unsafe_allow_html=True)
+    st.write("""
+    Traditional tools like CompStat mainly focus on historical mapping and basic trend analysis. They often 
+    lack predictive capabilities, struggle to integrate multiple data sources, and rarely provide real-time, 
+    actionable guidance for resource allocation.
+    """)
+
+    st.markdown('<h2 class="sub-header">Project Blueprint</h2>', unsafe_allow_html=True)
+    st.write("""
+    This project uses a multi-phase pipeline:
+    - **Phase 1 & 2**: Data cleaning and exploratory analysis (temporal, spatial, categorical).
+    - **Phase 3**: Modeling using classification, clustering, regression, and frequent pattern mining.
+    - **Final**: Interactive dashboards and a public-facing website summarizing insights for non-technical stakeholders.
+    """)
+
+# =========================
+# TAB 2 – TEAM
+# =========================
 with tab2:
     st.markdown('<h2 class="sub-header">👥 Meet Our Team</h2>', unsafe_allow_html=True)
-    
-    st.info("🎯 **Team Mission Statement**\n\n*To leverage cutting-edge data science and machine learning techniques to transform public safety in San Francisco, creating predictive solutions that protect communities while optimizing resource allocation for maximum societal impact.*")
-    
+    st.info("🎯 **Team Mission:** Use data science and machine learning to support safer, smarter policing in San Francisco.")
+
     st.markdown("---")
-    
-    # Team members (Siddhi, Sejal, Mokshith)
     col1, col2 = st.columns([1, 3])
     with col1:
         st.image("formal.jpg", width=500)
     with col2:
-        st.subheader("Siddhi Muni- Data Lead")
-        st.write("**Brief Bio:** I'm a builder and a problem-solver, with a particular fascination for generative AI...")
-        st.write("**Team Role/Responsibilities:**\n• Data preprocessing and feature engineering\n• Leading machine learning model development and validation")
-        st.write("**Portfolio Links:**\n📧 siddhimuni1302@gmail.com | 💼 [LinkedIn](www.linkedin.com/in/siddhimuni) | 🐙 [GitHub](https://github.com/siddhimuni) | 🌐 [Google Scholar](https://scholar.google.com/citations?user=pSDJxbQAAAAJ&hl=en)")
+        st.subheader("Siddhi Muni – Data Lead")
+        st.write("Leads data preprocessing, feature engineering, and core ML model development.")
+        st.write("📧 siddhimuni1302@gmail.com | 💼 LinkedIn / GitHub / Google Scholar")
 
     st.markdown("---")
     col1, col2 = st.columns([1, 3])
@@ -130,10 +115,9 @@ with tab2:
         st.image("portfolio.jpg", caption="Sejal Hukare")
         st.markdown('</div>', unsafe_allow_html=True)
     with col2:
-        st.subheader("Sejal Hukare - Pipeline and ML")
-        st.write("**Brief Bio:** I'm a passionate coding and tech enthusiast...")
-        st.write("**Team Role/Responsibilities:**\n• Machine learning model architecture and optimization\n• Data pipeline development and deployment")
-        st.write("**Portfolio Links:**\n📧 sejal.hukare@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/sejal-hukare) | 🐙 [GitHub](https://github.com/sezol)")
+        st.subheader("Sejal Hukare – Pipeline & ML")
+        st.write("Focuses on ML pipeline design, model optimization, and deployment.")
+        st.write("📧 sejal.hukare@colorado.edu | 💼 LinkedIn / GitHub")
 
     st.markdown("---")
     col1, col2 = st.columns([1, 3])
@@ -142,48 +126,45 @@ with tab2:
         st.image("profile (2).jpg", caption="Mokshith")
         st.markdown('</div>', unsafe_allow_html=True)
     with col2:
-        st.subheader("Mokshith - Data & Feature Engineer")
-        st.write("**Brief Bio:** I'm passionate about uncovering hidden patterns in data...")
-        st.write("**Team Role/Responsibilities:**\n• Data preprocessing and feature engineering\n• Supporting machine learning model development")
-        st.write("**Portfolio Links:**\n📧 mokshit.Palleboina@colorado.edu | 💼 [LinkedIn](www.linkedin.com/in/mokshith-sreekar-915bb6249) | 🐙 [GitHub](https://github.com/mokshith9500) | 🌐 [IEEE Explore](https://ieeexplore.ieee.org/author/220685108923536)")
+        st.subheader("Mokshith – Data & Feature Engineer")
+        st.write("Works on data cleaning, feature engineering, and supporting model experimentation.")
+        st.write("📧 mokshit.Palleboina@colorado.edu | 💼 LinkedIn / GitHub / IEEE Xplore")
 
-    st.markdown("---")
-
+# =========================
+# TAB 3 – PROPOSAL / OVERVIEW
+# =========================
 with tab3:
-    st.markdown('<h2 class="sub-header">📋 Quick Reference Summary</h2>', unsafe_allow_html=True)
-    
+    st.markdown('<h2 class="sub-header">📋 Project Overview</h2>', unsafe_allow_html=True)
     st.markdown("""
     <div class="highlight-box">
         <h3>🔬 Research Topic</h3>
         <p><strong>Predicting Crime Patterns and Optimizing Public Safety Resource Allocation in San Francisco</strong></p>
     </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown('<h3 class="sub-header">📊 Project Scope</h3>', unsafe_allow_html=True)
+
     col1, col2 = st.columns(2)
     with col1:
         st.markdown("""
         **Dataset & Coverage:**  
-        • **Dataset:** San Francisco Crime Data  
-        • **Volume:** 500,000+ incident records  
-        • **Time Period:** Multi-year historical analysis  
-        • **Geographic Focus:** All SF neighborhoods and police districts  
+        • San Francisco Crime Data (historical)  
+        • 500,000+ incident records  
+        • Multiple years, all SF districts and neighborhoods  
         """)
     with col2:
         st.markdown("""
         **Analysis Approach:**  
-        • **Crime Categories:** Violent, property, quality-of-life violations  
-        • **Methods:** Machine learning, statistical modeling  
-        • **Techniques:** Geospatial analysis, predictive modeling  
-        • **Output:** Interactive dashboards and recommendations  
+        • Temporal and spatial pattern analysis  
+        • Classification, clustering, regression models  
+        • Frequent pattern mining for co-occurring crime types  
         """)
 
-    # Mock Data Generation
+    # Mock data for interactive demo (does not depend on real SF dataset here)
     np.random.seed(0)
     dates = pd.to_datetime(pd.date_range('2021-01-01', '2024-12-31', freq='D'))
     data_points = len(dates)
     crime_categories = ['Vehicle Theft', 'Robbery', 'Burglary', 'Assault', 'Vandalism']
-    districts = ['Central', 'Southern', 'Northern', 'Bayview', 'Mission', 'Richmond', 'Ingleside', 'Park', 'Taraval', 'Tenderloin']
+    districts = ['Central', 'Southern', 'Northern', 'Bayview', 'Mission',
+                 'Richmond', 'Ingleside', 'Park', 'Taraval', 'Tenderloin']
     df = pd.DataFrame({
         'Date': np.random.choice(dates, data_points * 5, replace=True),
         'Category': np.random.choice(crime_categories, data_points * 5, replace=True),
@@ -192,13 +173,17 @@ with tab3:
     })
 
     st.markdown("### Interactive Crime Dashboard (Mock Data)")
-    st.markdown('<div class="text-block">Use the sliders and filters below to explore how crime trends change over time, by category, and by district.</div>', unsafe_allow_html=True)
     col_filters1, col_filters2 = st.columns(2)
     with col_filters1:
         selected_years = st.slider("Select Year Range:", 2021, 2024, (2022, 2024))
-        selected_categories = st.multiselect("Select Crime Categories:", options=crime_categories, default=crime_categories)
+        selected_categories = st.multiselect("Select Crime Categories:",
+                                             options=crime_categories,
+                                             default=crime_categories)
     with col_filters2:
-        selected_districts = st.multiselect("Select Districts:", options=districts, default=districts)
+        selected_districts = st.multiselect("Select Districts:",
+                                            options=districts,
+                                            default=districts)
+
     filtered_df = df[
         (df['Date'].dt.year >= selected_years[0]) &
         (df['Date'].dt.year <= selected_years[1]) &
@@ -206,146 +191,254 @@ with tab3:
         (df['District'].isin(selected_districts))
     ]
 
-    # Display statistics
-    st.markdown('<h3 class="sub-header">Key Statistics</h3>', unsafe_allow_html=True)
     col_stats1, col_stats2, col_stats3 = st.columns(3)
     with col_stats1:
-        st.metric("Total Incidents (in range)", f"{filtered_df['Incidents'].sum():,}")
+        st.metric("Total Incidents", f"{filtered_df['Incidents'].sum():,}")
     with col_stats2:
-        st.metric("Average Daily Incidents", f"{filtered_df['Incidents'].sum() / (filtered_df['Date'].nunique()):.2f}")
+        denom = max(1, filtered_df['Date'].nunique())
+        st.metric("Avg Daily Incidents", f"{filtered_df['Incidents'].sum() / denom:.2f}")
     with col_stats3:
-        st.metric("Most Common Crime", filtered_df['Category'].mode()[0] if not filtered_df.empty else "N/A")
+        common = filtered_df['Category'].mode()[0] if not filtered_df.empty else "N/A"
+        st.metric("Most Common Crime", common)
 
-    # Crime Trends Over Time
-    st.markdown('<h3 class="sub-header">Crime Trends Over Time</h3>', unsafe_allow_html=True)
     trend_data = filtered_df.groupby(filtered_df['Date'].dt.to_period('M'))['Incidents'].sum().reset_index()
     trend_data['Date'] = trend_data['Date'].astype(str)
     fig_time = px.line(trend_data, x='Date', y='Incidents', title='Monthly Crime Incidents Trend')
     st.plotly_chart(fig_time, use_container_width=True)
 
-    # Crime Distribution by District
-    st.markdown('<h3 class="sub-header">Crime Distribution by District</h3>', unsafe_allow_html=True)
-    district_data = filtered_df.groupby('District')['Incidents'].sum().reset_index()
-    fig_district = px.bar(district_data, x='District', y='Incidents', title='Total Incidents by District')
-    st.plotly_chart(fig_district, use_container_width=True)
-
-    # Key Research Questions
-    st.markdown('<h3 class="sub-header">❓ Key Research Questions</h3>', unsafe_allow_html=True)
-    questions = [
-        "🕐 Temporal Analysis: When do specific crime types peak?",
-        "📍 Spatial Analysis: Where are crime hotspots located and why?",
-        "🔮 Predictive Modeling: Can we predict crime type and likelihood by location/time?",
-        "🚔 Resource Optimization: How should police allocate patrol resources?",
-        "🏘️ Comparative Analysis: How do different neighborhoods compare in crime patterns?",
-        "🔗 Causal Relationships: What factors drive crime rate fluctuations?"
-    ]
-    for i, question in enumerate(questions, 1):
-        st.markdown(f"{i}. {question}")
-
-    # Phase 2 Conclusion
-    st.markdown('<h2 class="sub-header">📌 Phase 2 Conclusion</h2>', unsafe_allow_html=True)
-    st.write("""
-    Phase 2 focused on exploring and understanding the San Francisco crime dataset to extract meaningful insights across time, space, and crime categories.
-
-    **Key Insights:**
-    - **Spatial Concentration:** Mission, Tenderloin, and SoMa are high-crime neighborhoods.
-    - **Temporal Patterns:** Peak incidents occur on Fridays and Wednesdays, primarily between 12 PM–7 PM.
-    - **Dominant Crime Types:** Larceny/Theft and vehicle-related crimes dominate.
-    - **District-Level Patterns:** Southern, Mission, and Central districts report the highest number of incidents.
-    - **Resolution Insights:** Many cases result in citations or arrests, while a notable number remain open or active.
-
-    This analysis establishes a clean, structured, and interpretable dataset, enabling stakeholders to explore trends and form the foundation for predictive modeling and strategic recommendations in Phase 3.
-    """)
-
-# Phase 2 EDA Tab
+# =========================
+# TAB 4 – PHASE 2 EDA
+# =========================
 with tab4:
-    st.markdown('<h2 class="sub-header">🧠 Phase 2 – Exploratory Data Analysis (EDA)</h2>', unsafe_allow_html=True)
-
+    st.markdown('<h2 class="sub-header">🔍 Phase 2 – Exploratory Data Analysis (EDA)</h2>', unsafe_allow_html=True)
     st.write("""
-    Phase 2 focuses on **deep exploratory data analysis (EDA)** to extract meaningful insights
-    from the San Francisco crime dataset. This phase emphasizes cleaning, transformation,
-    and visualization to identify underlying trends and relationships between crime variables.
+    Phase 2 focuses on cleaning, transforming, and exploring the SF crime dataset to understand key patterns
+    before modeling.
     """)
 
-    # --- Data Cleaning & Transformation ---
     st.markdown('<h3 class="sub-header">🧹 Data Cleaning & Transformation</h3>', unsafe_allow_html=True)
     st.write("""
-    Before analysis, the dataset underwent essential preprocessing steps:
-    - **Missing Values Handling:** Removed or imputed missing records.
-    - **Duplicate Removal:** Cleaned redundant entries ensuring unique crime incidents.
-    - **Feature Refinement:** Dropped irrelevant columns and encoded categorical data.
-    - **Outlier Detection:** Identified anomalies using z-scores and IQR methods.
-    - **Normalization:** Standardized data to improve model consistency.
-    - **Date-Time Extraction:** Extracted features like `Year`, `Month`, `Day of Week`, and `Hour`.
+    Main preprocessing steps included:
+    - Handling missing values and duplicate records  
+    - Dropping irrelevant columns and encoding categorical features  
+    - Outlier detection for extreme incident counts or rare categories  
+    - Extracting date-time features such as year, month, weekday, and hour  
     """)
 
-    # --- Correlation Heatmaps ---
     st.markdown('<h3 class="sub-header">📊 Correlation Analysis</h3>', unsafe_allow_html=True)
     for img_name, caption in [
-        ("coorelation_heatmap", "Correlation Heatmap (Before Cleaning)"),
-        ("coorelation_heatmap_cleaned", "Correlation Heatmap (After Cleaning)")
+        ("coorelation_heatmap.png", "Correlation Heatmap (Before Cleaning)"),
+        ("coorelation_heatmap_cleaned.png", "Correlation Heatmap (After Cleaning)")
     ]:
-        if os.path.exists(f"{img_name}.png"):
-            st.image(f"{img_name}.png", caption=caption, use_container_width=True)
+        if os.path.exists(img_name):
+            st.image(img_name, caption=caption)
         else:
-            st.warning(f"⚠️ {img_name}.png not found in directory.")
+            st.warning(f"⚠️ {img_name} not found in directory.")
 
     st.write("""
-    The correlation heatmaps help in identifying **relationships between variables**
-    and highlight **redundant or highly correlated features** that can be removed
-    to improve model interpretability and reduce overfitting.
+    These heatmaps were used to identify redundant or highly correlated variables to avoid multicollinearity
+    and simplify downstream models.
     """)
 
-    # --- Visualization Analysis ---
-    st.markdown('<h3 class="sub-header">📈 Visualization Insights</h3>', unsafe_allow_html=True)
-    st.write("""
-    The following visualizations represent the core findings of our EDA process.
-    Each chart uncovers temporal, spatial, and categorical crime patterns.
-    """)
-
+    st.markdown('<h3 class="sub-header">📈 Key Visual Insights</h3>', unsafe_allow_html=True)
     visualizations = [
-        ("crime_type_distribution", "Crime Type Distribution",
-         "Displays frequency of different crime categories, showing dominance of larceny/theft and vehicle crimes."),
-        ("monthly_trend", "Monthly Trend of Crimes",
-         "Shows seasonal variations in crime rates across different months."),
-        ("day_of_week", "Crimes by Day of the Week",
-         "Highlights how crime frequency peaks around Fridays and weekends."),
-        ("hourly_pattern", "Hourly Crime Pattern",
-         "Depicts the time-of-day effect — showing concentration between 12 PM and 7 PM."),
-        ("neighborhood_hotspots", "Neighborhood Crime Hotspots",
-         "Displays areas with highest incident density — Tenderloin, Mission, and SoMa."),
-        ("district_comparison", "District-Level Comparison",
-         "Compares total incidents across all SF police districts."),
-        ("wordcloud", "Crime Type Wordcloud",
-         "Visual representation of the most frequent crime types using text prominence.")
+        ("crime_type_distribution.png", "Crime Type Distribution",
+         "Shows which crime categories dominate overall incident counts."),
+        ("monthly_trend.png", "Monthly Crime Trend",
+         "Reveals seasonal variations and long-term trends in crime volume."),
+        ("day_of_week.png", "Crimes by Day of Week",
+         "Highlights which days see more activity (e.g., mid-week vs weekends)."),
+        ("hourly_pattern.png", "Hourly Crime Pattern",
+         "Shows time-of-day effects, with peaks in afternoon/early evening."),
+        ("neighborhood_hotspots.png", "Neighborhood Crime Hotspots",
+         "Maps high-density crime areas such as Mission, Tenderloin, and SoMa."),
+        ("district_comparison.png", "Incidents by District",
+         "Compares total incidents across SF police districts."),
+        ("wordcloud.png", "Crime Wordcloud",
+         "Visual emphasizes the most frequent incident descriptions/categories.")
     ]
 
     for img_name, title, desc in visualizations:
-        st.markdown(f'<h4 style="color:#1f77b4;">📍 {title}</h4>', unsafe_allow_html=True)
-        if os.path.exists(f"{img_name}.png"):
-            st.image(f"{img_name}.png", caption=title, use_container_width=True)
+        st.markdown(f"#### {title}")
+        if os.path.exists(img_name):
+            st.image(img_name, caption=title)
         else:
-            st.warning(f"⚠️ {img_name}.png not found.")
+            st.warning(f"⚠️ {img_name} not found.")
         st.write(desc)
         st.markdown("---")
 
-    # --- Phase 2 Summary ---
-    st.markdown('<h3 class="sub-header">📌 Phase 2 Summary & Conclusion</h3>', unsafe_allow_html=True)
+    st.markdown("**Summary:** Mission, Tenderloin, and SoMa emerge as persistent hotspots; larceny/theft and vehicle-related incidents dominate; and crime activity is highest in afternoon and early evening hours.")
+
+# =========================
+# TAB 5 – MODELS IMPLEMENTED
+# =========================
+with tab5:
+    st.markdown('<h2 class="sub-header">🧠 Models Implemented</h2>', unsafe_allow_html=True)
+    st.markdown("""
+    This section summarizes the models used in Phase 3, grouped by requirement category:
+    - Frequent Pattern Mining: **Apriori**  
+    - Clustering: **K-Means**  
+    - Classification: **Support Vector Machine (SVM)**  
+    - Regression: **XGBoost** and **LightGBM**  
+    """, unsafe_allow_html=True)
+
+    # APRIORI
+    st.markdown("### 1️⃣ Frequent Pattern Mining – Apriori")
     st.write("""
-    Phase 2 provided valuable insights into crime behavior across spatial, temporal, and categorical dimensions.
+    **Why chosen:** To discover which crime types tend to co-occur within the same district and day 
+    (e.g., Theft + Vehicle-related crimes).
 
-    **Key Insights:**
-    - **Spatial Concentration:** Mission, Tenderloin, and SoMa remain high-crime neighborhoods.
-    - **Temporal Patterns:** Crime peaks on Fridays and Wednesdays, primarily between 12 PM–7 PM.
-    - **Dominant Crime Types:** Larceny/Theft and vehicle-related crimes dominate incident counts.
-    - **District Patterns:** Southern, Mission, and Central districts record the most cases.
-    - **Resolution Rates:** A notable percentage of cases remain unresolved, indicating improvement opportunities.
+    **Data formatting:**  
+    - Created a `transaction_id` by combining police district and incident date.  
+    - Grouped incidents by transaction and crime category, then pivoted to a binary matrix
+      (1 = crime type occurred that day in that district, 0 = did not).  
 
-    These insights lay a solid foundation for **Phase 3**, which will focus on **predictive modeling,
-    feature importance analysis, and resource allocation optimization**.
+    **Hyperparameters:**  
+    - `min_support = 0.01`  
+    - Generated rules using `metric="lift"` with `min_threshold = 1.2`  
+    - Filtered to keep rules with `confidence ≥ 0.30` and ≤ 2 items per side.
+
+    **Metrics:**  
+    - **Support:** how often the pattern occurs.  
+    - **Confidence:** how reliable the rule is.  
+    - **Lift:** how much more often the pattern occurs than random chance (lift > 1 = positive association).
+
+    **Insight:** Property crime combinations occur together more often than expected in certain districts, suggesting 
+    opportunities for joint prevention strategies.
     """)
 
-    st.success("✅ Phase 2 EDA successfully completed and integrated with visual insights.")
+    if os.path.exists("apriori_scatter_plot.png"):
+        st.image("apriori_scatter_plot.png",
+                 caption="Apriori Association Rules – Confidence vs Lift")
+
+    st.markdown("---")
+
+    # K-MEANS
+    st.markdown("### 2️⃣ Clustering – K-Means")
+    st.write("""
+    **Why chosen:** To segment neighborhoods or districts into groups with similar crime intensity and patterns.
+
+    **Data formatting:**  
+    - Aggregated features such as incident counts and category mix per spatial unit.  
+    - Scaled all numeric features so that each contributes fairly to the distance metric.
+
+    **Hyperparameters (conceptual):**  
+    - `n_clusters = k` chosen using the elbow method (within-cluster sum of squares).  
+    - `init = "k-means++"` for stable centroid initialization.
+
+    **Insight:** Clusters roughly correspond to high-crime cores, moderate-risk mixed areas, and lower-risk residential zones,
+    which helps prioritize patrol coverage and resource allocation.
+    """)
+
+    colk1, colk2 = st.columns(2)
+    with colk1:
+        if os.path.exists("kmeans_elbow_plot.png"):
+            st.image("kmeans_elbow_plot.png", caption="K-Means Elbow Plot")
+    with colk2:
+        if os.path.exists("kmeans_cluster_map.png"):
+            st.image("kmeans_cluster_map.png", caption="K-Means Cluster Map")
+
+    st.markdown("---")
+
+    # SVM
+    st.markdown("### 3️⃣ Classification – Support Vector Machine (SVM)")
+    st.write("""
+    **Why chosen:** SVM with an RBF kernel handles high-dimensional feature spaces and can model non-linear 
+    decision boundaries. We used it to classify police districts (or simplified crime categories) using
+    spatial and temporal features.
+
+    **Data preparation:**  
+    - Standardized numeric features (coordinates, time features).  
+    - Applied PCA to reduce dimensionality while preserving most variance.  
+    - Encoded target labels and used a stratified train–test split.
+
+    **Hyperparameters (conceptual):**  
+    - `kernel = "rbf"`  
+    - `C` (controls margin vs misclassification)  
+    - `gamma = "scale"`  
+
+    **Evaluation:**  
+    - Accuracy and per-class precision/recall (via classification report).  
+    - Performance is moderate: common districts are predicted better than rare ones, showing overlapping patterns
+      between some districts.
+    """)
+
+    if os.path.exists("svm_decision_boundary.png"):
+        st.image("svm_decision_boundary.png",
+                 caption="SVM Decision Boundary in PCA Space (PC1 vs PC2)")
+
+    st.markdown("---")
+
+    # XGBOOST
+    st.markdown("### 4️⃣ Regression – XGBoost (Response Time Prediction)")
+    st.write("""
+    **Goal:** Predict police response time (in minutes) based on spatial, temporal, and incident features.
+
+    **Why chosen:** XGBoost is strong on tabular data, captures non-linear interactions, and includes regularization.
+
+    **Features:**  
+    - Numeric: latitude, longitude, incident hour, weekday, month  
+    - Target-encoded categorical: police district, neighborhood, incident category  
+
+    **Target engineering:**  
+    - Computed response time in minutes from incident and report timestamps  
+    - Filtered out invalid/negative values  
+    - Capped extreme values at the 95th percentile  
+    - Applied `log1p` transform to reduce skewness  
+
+    **Best hyperparameters (RandomizedSearchCV, 3-fold):**  
+    - `n_estimators = 400`, `learning_rate = 0.01`, `max_depth = 4`  
+    - `subsample = 0.8`, `colsample_bytree = 0.8`, `reg_lambda = 5`  
+
+    **Performance (original scale, capped target):**  
+    - **Train:** RMSE ≈ 3432, MAE ≈ 1218, R² ≈ 0.54  
+    - **Test:**  RMSE ≈ 4592, MAE ≈ 1729, R² ≈ 0.22  
+
+    **Interpretation:** XGBoost captures some structure in response time but is limited by missing external factors 
+    (traffic, staffing, concurrent calls). It is still the best-performing regression model in our pipeline.
+    """)
+
+    st.markdown("---")
+
+    # LIGHTGBM
+    st.markdown("### 5️⃣ Regression – LightGBM (Comparison Model)")
+    st.write("""
+    **Why chosen:** LightGBM is a fast and memory-efficient gradient boosting framework; we used it as a 
+    comparison model to XGBoost on the same regression task.
+
+    **Setup:**  
+    - Same features and target as XGBoost (shared preprocessing pipeline).  
+
+    **Best hyperparameters (RandomizedSearchCV, 3-fold):**  
+    - `learning_rate = 0.03`, `n_estimators = 100`, `max_depth = 3`, `num_leaves = 31`  
+    - `reg_alpha = 1.0`, `reg_lambda = 1.0`  
+    - `min_child_samples = 10`, `min_split_gain = 0.1`, `subsample = 0.8`, `colsample_bytree = 1.0`  
+
+    **Performance (original scale, capped target):**  
+    - **Train:** RMSE ≈ 3627, MAE ≈ 1309, R² ≈ 0.48  
+    - **Test:**  RMSE ≈ 4672, MAE ≈ 1760, R² ≈ 0.19  
+
+    **Comparison:** XGBoost slightly outperforms LightGBM on both R² and RMSE, but both confirm that response time 
+    is noisy and only partially predictable from the available features.
+    """)
+
+    st.markdown("#### 📌 Overall Model Summary")
+    st.write("""
+    | Category               | Model        | Main Goal                                    | Key Outcome                                  |
+    |------------------------|-------------|----------------------------------------------|---------------------------------------------|
+    | Frequent Pattern Mining| Apriori     | Discover co-occurring crime patterns         | Support, Confidence, Lift-based rules       |
+    | Clustering             | K-Means     | Group areas by similar crime behavior        | Hotspot vs moderate vs low-risk clusters    |
+    | Classification         | SVM (+ PCA) | Classify districts / crime types             | Moderate accuracy, overlapping patterns     |
+    | Regression             | XGBoost     | Predict police response time                 | Best Test R² ≈ 0.22                         |
+    | Regression             | LightGBM    | Validate and compare regression performance  | Test R² ≈ 0.19                              |
+
+    Together, these models give a multi-faceted view of SF crime:
+    - **Apriori** uncovers crime co-occurrence structures.  
+    - **K-Means** reveals spatial risk clusters.  
+    - **SVM** explores how separable crime patterns are across districts.  
+    - **XGBoost** and **LightGBM** attempt to forecast response time and highlight the limits of prediction with 
+      the current data.
+    """)
 
 # Footer
 st.markdown("---")
