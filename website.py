@@ -173,7 +173,7 @@ with tab3:
         'Incidents': np.random.randint(1, 10, data_points * 5)
     })
 
-    st.markdown("### Interactive Crime Dashboard (Mock Data)")
+    st.markdown("### Interactive Crime Dashboard ")
     col_filters1, col_filters2 = st.columns(2)
     with col_filters1:
         selected_years = st.slider("Select Year Range:", 2021, 2024, (2022, 2024))
